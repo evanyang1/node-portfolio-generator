@@ -1,25 +1,41 @@
 const inquirer = require('inquirer')
+const fs = require('fs')
+var createHTML = require('create-html')
 
-  / inquirer.prompt([
+inquirer.prompt([
 {
   type: 'input',
-  name: 'Name',
+  name: 'name',
   message: 'what is your name?'
 },
 {
   type: 'input',
-  name: 'Bio',
+  name: 'bio',
   message: 'Please input your bio'
 },
 {
    type: 'input',
-    name: 'Linkedin',
+    name: 'linkedin',
     message: 'what is your Linkedin URL?'
 },
     {
       type: 'input',
-      name: 'Github',
+      name: 'github',
       message: 'what is your GitHub URL?'
     },
 ]
-).then(response => {})
+).then(({name, bio, linkedin, github}) => {
+
+  var html = createHTML({
+    title: 'example',
+    body: `
+    <div>Name: ${name} </div>
+    <div>Bio: ${bio} </div>
+    <div>Linkedin: ${linkedin} </div>
+    <div>GitHub URL: ${github} </div>
+    `
+  })
+  fs.writeFile('index.html', html, function (err) {
+    if (err) console.log(err)
+  })
+})

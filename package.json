@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/evanyang1/node-portfolio-generator#readme",
   "dependencies": {
+    "create-html": "^4.1.0",
     "inquirer": "^7.0.4"
   }
 }
