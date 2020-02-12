@@ -28,8 +28,9 @@ inquirer.prompt([
 
   var html = createHTML({
     title: 'example',
+    css:'style.css',
     body: `
-    <div>Name: ${name} </div>
+    <div class="name">Name: ${name} </div>
     <div>Bio: ${bio} </div>
     <div>Linkedin: ${linkedin} </div>
     <div>GitHub URL: ${github} </div>
